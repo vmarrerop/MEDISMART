@@ -105,5 +105,39 @@ namespace MVC.Controllers
             Response.Cookies.Delete("user");
             return RedirectToAction("Index", "Home");
         }
+
+        /*
+        //COMPRABACIÓN PARA USUARIOS DUPLICADOS
+        private void addNewAppName(string appName)
+        {
+            using (SqlConnection cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            {
+                SqlCommand cmd = new SqlCommand("sp_registrar", cnx);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@Nombre", SqlDbType.VarChar, 50).Value = appName;
+                try
+                {
+                    cnx.Open();
+                    if (cmd.ExecuteNonQuery() != 1)
+                    {
+                        MessageBox.Show("Application name already exists!", "Error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Record has been succed!!!!", "Insertion done!!!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Has been getting error, try it again later.", "Connection error:", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    if (cnx.State == ConnectionState.Open) { cnx.Close(); }
+                }
+            }
+        }
+        */
     }
 }
